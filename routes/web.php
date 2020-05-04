@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('questions', 'QuestionsController');
+
+Route::resource('answers', 'AnswersController', ['except'=>['index', 'show', 'create']]);
+
+Route::get('/profile/{user}','PageController@profile')->name('profile');
+
+
