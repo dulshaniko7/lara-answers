@@ -5,7 +5,7 @@
 
     <div class="content">
         <div class="title m-b-md">
-            Laravel Answer
+            Laravel Home
         </div>
 
 
@@ -13,4 +13,3 @@
 
 
 @endsection
-
