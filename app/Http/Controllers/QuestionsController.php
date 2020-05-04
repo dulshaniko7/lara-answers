@@ -15,13 +15,13 @@ class QuestionsController extends Controller {
 	 */
 	public function __construct() {
 		$this->middleware('auth', [
-				'except'=>['index']
+				'except' => ['index']
 		]);
 	}
 
 	public function index() {
 		//
-		$questions=Question::paginate(3);
+		$questions = Question::paginate(3);
 		return view('questions.index')->with('questions', $questions);
 	}
 
@@ -44,11 +44,11 @@ class QuestionsController extends Controller {
 	public function store(Request $request) {
 		//
 		$this->validate($request, [
-				'title'=>'required'
+				'title' => 'required'
 		]);
-		$question=new Question();
-		$question->title=$request->title;
-		$question->description=$request->description;
+		$question = new Question();
+		$question->title = $request->title;
+		$question->description = $request->description;
 		$question->user()->associate(Auth::id());
 
 
@@ -57,8 +57,6 @@ class QuestionsController extends Controller {
 		} else {
 			return redirect()->route('questions.create');
 		}
-
-
 	}
 
 	/**
@@ -69,8 +67,8 @@ class QuestionsController extends Controller {
 	 */
 	public function show($id) {
 		//
-		$question=Question::findOrFail($id);
-		return view('questions.show')->with('question',$question);
+		$question = Question::findOrFail($id);
+		return view('questions.show')->with('question', $question);
 	}
 
 	/**
