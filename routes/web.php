@@ -17,14 +17,24 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-Auth::routes();
+Auth::routes([
+		Route::get('/profile/{user}', 'PageController@profile')->name('profile'),
+
+
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('questions', 'QuestionsController');
 
-Route::resource('answers', 'AnswersController', ['except'=>['index', 'show', 'create']]);
+Route::resource('answers', 'AnswersController', ['except' => ['index', 'show', 'create']]);
 
-Route::get('/profile/{user}','PageController@profile')->name('profile');
+//Route::get('/profile/{user}', 'PageController@profile')->name('profile');
 
+Route::get('/contact', 'PageController@contact')->name('contact');
+Route::post('/contact', 'PageController@sendcontact');
+Route::get('/upload','UploadController@getupload')->name('upload');
+Route::post('/upload','UploadController@postupload');
 
+Route::get('./github/{username}','ApiController@github')->name('github');
+Route::get('/weather','ApiController@weather')->name('weather');

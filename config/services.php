@@ -13,6 +13,12 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+'nexmo'=>[
+'key' => env('NK'),
+	'secret' => env('NS'),
+	'sms_from' => env('94766481255')
+		],
+
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),

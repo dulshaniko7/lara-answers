@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
+use App\Notifications\RegisterUser;
 use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,7 @@ class AnswersController extends Controller
 
 	    $question = Question::findOrFail($request->question_id);
 	    $question->answers()->save($answer);
+	    $question->user->notify(new RegisterUser($answer,$question,Auth::user()->name));
 
 	    return redirect()->route('questions.show',$question->id);
 

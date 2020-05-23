@@ -38,7 +38,7 @@
                     <a class="nav-link" href="{{ route('questions.index') }}">Recent</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Popular</a>
+                    <a class="nav-link" href="{{ route('contact') }}">Contact us</a>
                 </li>
 
 

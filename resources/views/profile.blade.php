@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="container">
+        <img class="img-thumbnail" src="{{asset('storage/'.$user->image)}}" alt="">
         <h1>Hi {{ $user->name }}</h1>
         <hr/>
 
