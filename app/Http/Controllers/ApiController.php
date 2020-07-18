@@ -20,4 +20,7 @@ class ApiController extends Controller {
 	public function weather() {
 		return view('frontend.weather');
 	}
+	public function front(){
+		return view('frontend.index');
+	}
 }

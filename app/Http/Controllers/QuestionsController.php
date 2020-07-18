@@ -21,9 +21,11 @@ class QuestionsController extends Controller {
 
 	public function index() {
 		//
-		$questions = Question::paginate(3);
-		return view('questions.index')->with('questions', $questions);
+		$questions = Question::all();
+		//return view('questions.index')->with('questions', $questions);
+		return $questions;
 	}
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -68,7 +70,8 @@ class QuestionsController extends Controller {
 	public function show($id) {
 		//
 		$question = Question::findOrFail($id);
-		return view('questions.show')->with('question', $question);
+		//return view('questions.show')->with('question', $question);
+		return $question;
 	}
 
 	/**

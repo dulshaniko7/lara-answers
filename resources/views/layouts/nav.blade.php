@@ -48,7 +48,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 <li class="nav-item">
-                    <a class="nav-link btn btn-primary" href="{{ route('questions.create') }}">Add a Question</a>
+                    <button class="btn btn-primary"><a class="nav-link" href="{{ route('questions.create') }}">Ask a Question</a></button>
                 </li>
                 @guest
                     <li class="nav-item">
